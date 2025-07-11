@@ -2,8 +2,6 @@ import express, { Application } from "express";
 import cors from "cors";
 import morgan from "morgan";
 import routes from "./routes";
-import helmet from "helmet";
-import { limiterConfig } from "./config/rateLimitConfig";
 import { env } from "./config/envConfig";
 import connectDB from "./config/dbConfig";
 // import { throttleConfig } from "./config/throttleConfig.cjs";
@@ -12,14 +10,12 @@ const app: Application = express();
 
 // ===== Middleware =====
 
-//rate-limit
-app.use(limiterConfig);
 
 //api thorttle
 // app.use(throttleConfig);
 
 // Security middleware to set various HTTP headers
-app.use(helmet());
+app.use();
 
 // Enable Cross-Origin Resource Sharing (CORS)
 //Development
